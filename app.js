@@ -19,7 +19,7 @@ app.use('/todo',todo);
 //Connecting to Mongoose
 // const url = 'mongodb://admin:todolist1234@ds117830.mlab.com:17830/todo-list';
 // const url = 'mongodb://mbmcorp:mbm1234@ds229290.mlab.com:29290/mbm';
-const url = 'mongodb://localhost:27017/to-do-list';
+const url = 'mongodb://admin:admin1234@ds251022.mlab.com:51022/fancy-todo';
 
 mongoose.connect(url,{ useNewUrlParser: true });
 var db = mongoose.connection;
@@ -28,9 +28,8 @@ db.once('open', function() {
   console.log('We are connected');
 });
 
-app.listen(port,()=>{
-  console.log(`application is on port:${port}`);
-});
+app.listen(process.env.PORT || '3000');
+
 
 
 
